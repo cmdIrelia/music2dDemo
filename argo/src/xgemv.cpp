@@ -2,7 +2,7 @@
 // File: xgemv.cpp
 //
 // MATLAB Coder version            : 4.1
-// C/C++ source code generated on  : 02-Feb-2019 23:40:29
+// C/C++ source code generated on  : 03-Feb-2019 02:46:35
 //
 
 // Include Files
@@ -26,12 +26,12 @@ void xgemv(int m, int n, const creal_T A[16], int ia0, const creal_T x[16], int
            ix0, creal_T y[4])
 {
   int iy;
-  int i11;
+  int i12;
   int iac;
   int ix;
   double c_re;
   double c_im;
-  int i12;
+  int i13;
   int ia;
   if (n != 0) {
     for (iy = 0; iy < n; iy++) {
@@ -40,13 +40,13 @@ void xgemv(int m, int n, const creal_T A[16], int ia0, const creal_T x[16], int
     }
 
     iy = 0;
-    i11 = ia0 + ((n - 1) << 2);
-    for (iac = ia0; iac <= i11; iac += 4) {
+    i12 = ia0 + ((n - 1) << 2);
+    for (iac = ia0; iac <= i12; iac += 4) {
       ix = ix0 - 1;
       c_re = 0.0;
       c_im = 0.0;
-      i12 = (iac + m) - 1;
-      for (ia = iac; ia <= i12; ia++) {
+      i13 = (iac + m) - 1;
+      for (ia = iac; ia <= i13; ia++) {
         c_re += A[ia - 1].re * x[ix].re + A[ia - 1].im * x[ix].im;
         c_im += A[ia - 1].re * x[ix].im - A[ia - 1].im * x[ix].re;
         ix++;

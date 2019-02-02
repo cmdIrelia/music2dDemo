@@ -2,7 +2,7 @@
 // File: issorted.h
 //
 // MATLAB Coder version            : 4.1
-// C/C++ source code generated on  : 02-Feb-2019 23:40:29
+// C/C++ source code generated on  : 03-Feb-2019 02:46:35
 //
 #ifndef ISSORTED_H
 #define ISSORTED_H
@@ -15,7 +15,7 @@
 #include "music2D_types.h"
 
 // Function Declarations
-extern boolean_T issorted(const double x[36421]);
+extern boolean_T issorted(const double x[25921]);
 
 #endif
 

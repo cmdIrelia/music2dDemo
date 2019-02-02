@@ -2,7 +2,7 @@
 // File: AbstractSpectralDOA.cpp
 //
 // MATLAB Coder version            : 4.1
-// C/C++ source code generated on  : 02-Feb-2019 23:40:29
+// C/C++ source code generated on  : 03-Feb-2019 02:46:35
 //
 
 // Include Files
@@ -25,81 +25,74 @@ void AbstractSpectralDOA_setupImpl(phased_MUSICEstimator2D *obj)
 {
   phased_URA *varargin_2;
   int i;
-  double dv0[301];
-  double dv1[121];
-  static double ScanAz[36421];
-  static double ScanEl[36421];
+  double dv0[161];
+  double dv1[161];
+  static double ScanAz[25921];
+  static double ScanEl[25921];
   obj->cCovEstimator.isInitialized = 0;
   obj->cCovEstimator.matlabCodegenIsDeleted = false;
   varargin_2 = obj->SensorArray;
   obj->cSteeringVector.isInitialized = 0;
   obj->cSteeringVector.SensorArray = varargin_2;
   obj->cSteeringVector.matlabCodegenIsDeleted = false;
-  for (i = 0; i < 301; i++) {
-    dv0[i] = -150.0 + (double)i;
-  }
-
-  for (i = 0; i < 121; i++) {
-    dv1[i] = -60.0 + (double)i;
+  for (i = 0; i < 161; i++) {
+    dv0[i] = -80.0 + (double)i;
+    dv1[i] = -80.0 + (double)i;
   }
 
   meshgrid(dv0, dv1, ScanAz, ScanEl);
-  for (i = 0; i < 36421; i++) {
+  for (i = 0; i < 25921; i++) {
     obj->pScanAngles[i << 1] = ScanAz[i];
   }
 
-  for (i = 0; i < 36421; i++) {
+  for (i = 0; i < 25921; i++) {
     obj->pScanAngles[1 + (i << 1)] = ScanEl[i];
   }
 
-  for (i = 0; i < 36421; i++) {
+  for (i = 0; i < 25921; i++) {
     obj->pPattern[i] = 0.0;
   }
 }
 
 //
-// Arguments    : const double X[36421]
+// Arguments    : const double X[25921]
 //                double RowIndex_data[]
 //                int RowIndex_size[1]
 //                double ColIndex_data[]
 //                int ColIndex_size[1]
 // Return Type  : void
 //
-void c_AbstractSpectralDOA_privFindP(const double X[36421], double
+void c_AbstractSpectralDOA_privFindP(const double X[25921], double
   RowIndex_data[], int RowIndex_size[1], double ColIndex_data[], int
   ColIndex_size[1])
 {
   emxArray_int32_T *locs;
-  emxArray_int16_T *j;
-  static double xbk[36421];
+  static double xbk[25921];
   int idx;
   int jj;
   int ii;
   boolean_T exitg1;
   boolean_T guard1 = false;
   emxArray_int32_T *rows;
+  unsigned char j_data[25921];
   emxArray_int32_T *b_idx;
   emxArray_real_T *x;
   emxInit_int32_T(&locs, 1);
-  emxInit_int16_T(&j, 1);
   findpeaks2D(X, xbk);
   idx = 0;
   jj = locs->size[0];
-  locs->size[0] = 36421;
+  locs->size[0] = 25921;
   emxEnsureCapacity_int32_T(locs, jj);
-  jj = j->size[0];
-  j->size[0] = 36421;
-  emxEnsureCapacity_int16_T(j, jj);
   ii = 1;
   jj = 1;
   exitg1 = false;
-  while ((!exitg1) && (jj <= 301)) {
+  while ((!exitg1) && (jj <= 161)) {
     guard1 = false;
-    if (xbk[(ii + 121 * (jj - 1)) - 1] != 0.0) {
+    if (xbk[(ii + 161 * (jj - 1)) - 1] != 0.0) {
       idx++;
       locs->data[idx - 1] = ii;
-      j->data[idx - 1] = (short)jj;
-      if (idx >= 36421) {
+      j_data[idx - 1] = (unsigned char)jj;
+      if (idx >= 25921) {
         exitg1 = true;
       } else {
         guard1 = true;
@@ -110,7 +103,7 @@ void c_AbstractSpectralDOA_privFindP(const double X[36421], double
 
     if (guard1) {
       ii++;
-      if (ii > 121) {
+      if (ii > 161) {
         ii = 1;
         jj++;
       }
@@ -119,14 +112,10 @@ void c_AbstractSpectralDOA_privFindP(const double X[36421], double
 
   if (1 > idx) {
     locs->size[0] = 0;
-    j->size[0] = 0;
   } else {
     jj = locs->size[0];
     locs->size[0] = idx;
     emxEnsureCapacity_int32_T(locs, jj);
-    jj = j->size[0];
-    j->size[0] = idx;
-    emxEnsureCapacity_int16_T(j, jj);
   }
 
   emxInit_int32_T(&rows, 1);
@@ -144,7 +133,7 @@ void c_AbstractSpectralDOA_privFindP(const double X[36421], double
   emxEnsureCapacity_int32_T(b_idx, jj);
   ii = rows->size[0];
   for (jj = 0; jj < ii; jj++) {
-    b_idx->data[jj] = rows->data[jj] + 121 * (j->data[jj] - 1);
+    b_idx->data[jj] = rows->data[jj] + 161 * (j_data[jj] - 1);
   }
 
   emxInit_real_T(&x, 1);
@@ -191,10 +180,9 @@ void c_AbstractSpectralDOA_privFindP(const double X[36421], double
   ColIndex_size[0] = locs->size[0];
   ii = locs->size[0];
   for (jj = 0; jj < ii; jj++) {
-    ColIndex_data[jj] = j->data[locs->data[jj] - 1];
+    ColIndex_data[jj] = j_data[locs->data[jj] - 1];
   }
 
-  emxFree_int16_T(&j);
   emxFree_int32_T(&locs);
 }
 

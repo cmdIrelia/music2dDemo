@@ -2,7 +2,7 @@
 // File: AbstractSpectralDOA.h
 //
 // MATLAB Coder version            : 4.1
-// C/C++ source code generated on  : 02-Feb-2019 23:40:29
+// C/C++ source code generated on  : 03-Feb-2019 02:46:35
 //
 #ifndef ABSTRACTSPECTRALDOA_H
 #define ABSTRACTSPECTRALDOA_H
@@ -16,7 +16,7 @@
 
 // Function Declarations
 extern void AbstractSpectralDOA_setupImpl(phased_MUSICEstimator2D *obj);
-extern void c_AbstractSpectralDOA_privFindP(const double X[36421], double
+extern void c_AbstractSpectralDOA_privFindP(const double X[25921], double
   RowIndex_data[], int RowIndex_size[1], double ColIndex_data[], int
   ColIndex_size[1]);
 

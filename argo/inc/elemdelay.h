@@ -2,7 +2,7 @@
 // File: elemdelay.h
 //
 // MATLAB Coder version            : 4.1
-// C/C++ source code generated on  : 02-Feb-2019 23:40:29
+// C/C++ source code generated on  : 03-Feb-2019 02:46:35
 //
 #ifndef ELEMDELAY_H
 #define ELEMDELAY_H
@@ -15,8 +15,8 @@
 #include "music2D_types.h"
 
 // Function Declarations
-extern void elemdelay(const double pos[12], const double ang[602], double tau
-                      [1204]);
+extern void elemdelay(const double pos[12], const double ang[322], double tau
+                      [644]);
 
 #endif
 

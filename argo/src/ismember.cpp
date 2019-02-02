@@ -2,7 +2,7 @@
 // File: ismember.cpp
 //
 // MATLAB Coder version            : 4.1
-// C/C++ source code generated on  : 02-Feb-2019 23:40:29
+// C/C++ source code generated on  : 03-Feb-2019 02:46:35
 //
 
 // Include Files
@@ -15,17 +15,17 @@
 #include "issorted.h"
 
 // Function Declarations
-static int bsearchni(int k, const double x[36421], const double s[36421]);
+static int bsearchni(int k, const double x[25921], const double s[25921]);
 
 // Function Definitions
 
 //
 // Arguments    : int k
-//                const double x[36421]
-//                const double s[36421]
+//                const double x[25921]
+//                const double s[25921]
 // Return Type  : int
 //
-static int bsearchni(int k, const double x[36421], const double s[36421])
+static int bsearchni(int k, const double x[25921], const double s[25921])
 {
   int idx;
   double b_x;
@@ -37,7 +37,7 @@ static int bsearchni(int k, const double x[36421], const double s[36421])
   b_x = x[k - 1];
   idx = 0;
   ilo = 1;
-  ihi = 36421;
+  ihi = 25921;
   exitg1 = false;
   while ((!exitg1) && (ihi >= ilo)) {
     imid = ((ilo >> 1) + (ihi >> 1)) - 1;
@@ -76,29 +76,29 @@ static int bsearchni(int k, const double x[36421], const double s[36421])
 }
 
 //
-// Arguments    : const double a[36421]
-//                const double s[36421]
-//                boolean_T tf[36421]
+// Arguments    : const double a[25921]
+//                const double s[25921]
+//                boolean_T tf[25921]
 // Return Type  : void
 //
-void local_ismember(const double a[36421], const double s[36421], boolean_T tf
-                    [36421])
+void local_ismember(const double a[25921], const double s[25921], boolean_T tf
+                    [25921])
 {
   int k;
-  static double ss[36421];
+  static double ss[25921];
   int n;
   music2DTLS *music2DTLSThread;
   music2DTLSThread = emlrtGetThreadStackData();
-  memset(&tf[0], 0, 36421U * sizeof(boolean_T));
+  memset(&tf[0], 0, 25921U * sizeof(boolean_T));
   if (!issorted(s)) {
-    memcpy(&ss[0], &s[0], 36421U * sizeof(double));
+    memcpy(&ss[0], &s[0], 25921U * sizeof(double));
     b_sort(ss, music2DTLSThread->f0.unusedExpr);
 
 #pragma omp parallel for \
  num_threads(omp_get_max_threads()) \
  private(n)
 
-    for (k = 0; k < 36421; k++) {
+    for (k = 0; k < 25921; k++) {
       n = bsearchni(1 + k, a, ss);
       if (n > 0) {
         tf[k] = true;
@@ -110,7 +110,7 @@ void local_ismember(const double a[36421], const double s[36421], boolean_T tf
  num_threads(omp_get_max_threads()) \
  private(n)
 
-    for (k = 0; k < 36421; k++) {
+    for (k = 0; k < 25921; k++) {
       n = bsearchni(1 + k, a, s);
       if (n > 0) {
         tf[k] = true;

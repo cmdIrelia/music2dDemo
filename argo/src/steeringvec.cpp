@@ -2,7 +2,7 @@
 // File: steeringvec.cpp
 //
 // MATLAB Coder version            : 4.1
-// C/C++ source code generated on  : 02-Feb-2019 23:40:29
+// C/C++ source code generated on  : 03-Feb-2019 02:46:35
 //
 
 // Include Files
@@ -16,19 +16,19 @@
 
 //
 // Arguments    : const double pos[12]
-//                const double ang[602]
-//                creal_T sv[1204]
+//                const double ang[322]
+//                creal_T sv[644]
 // Return Type  : void
 //
-void steeringvec(const double pos[12], const double ang[602], creal_T sv[1204])
+void steeringvec(const double pos[12], const double ang[322], creal_T sv[644])
 {
-  double dv10[1204];
+  double dv10[644];
   int k;
   double re;
   double im;
   double r;
   elemdelay(pos, ang, dv10);
-  for (k = 0; k < 1204; k++) {
+  for (k = 0; k < 644; k++) {
     re = dv10[k] * -0.0;
     im = dv10[k] * -1.8849555921538758E+9;
     sv[k].re = re;

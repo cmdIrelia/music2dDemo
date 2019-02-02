@@ -2,7 +2,7 @@
 // File: schur.cpp
 //
 // MATLAB Coder version            : 4.1
-// C/C++ source code generated on  : 02-Feb-2019 23:40:29
+// C/C++ source code generated on  : 03-Feb-2019 02:46:35
 //
 
 // Include Files
@@ -28,7 +28,7 @@
 //
 void schur(const creal_T A[16], creal_T V[16], creal_T T[16])
 {
-  int i5;
+  int i6;
   creal_T work[4];
   int knt;
   int k;
@@ -51,27 +51,27 @@ void schur(const creal_T A[16], creal_T V[16], creal_T T[16])
   double c_im;
   int ix;
   int exitg1;
-  int i6;
+  int i7;
   if (anyNonFinite(A)) {
-    for (i5 = 0; i5 < 16; i5++) {
-      V[i5].re = rtNaN;
-      V[i5].im = 0.0;
+    for (i6 = 0; i6 < 16; i6++) {
+      V[i6].re = rtNaN;
+      V[i6].im = 0.0;
     }
 
     knt = 2;
     for (k = 0; k < 3; k++) {
       for (i = knt; i < 5; i++) {
-        i5 = (i + (k << 2)) - 1;
-        V[i5].re = 0.0;
-        V[i5].im = 0.0;
+        i6 = (i + (k << 2)) - 1;
+        V[i6].re = 0.0;
+        V[i6].im = 0.0;
       }
 
       knt++;
     }
 
-    for (i5 = 0; i5 < 16; i5++) {
-      T[i5].re = rtNaN;
-      T[i5].im = 0.0;
+    for (i6 = 0; i6 < 16; i6++) {
+      T[i6].re = rtNaN;
+      T[i6].im = 0.0;
     }
   } else {
     memcpy(&T[0], &A[0], sizeof(creal_T) << 4);
@@ -109,10 +109,10 @@ void schur(const creal_T A[16], creal_T V[16], creal_T T[16])
 
         if (fabs(beta1) < 1.0020841800044864E-292) {
           knt = -1;
-          i5 = (jA - i) + 1;
+          i6 = (jA - i) + 1;
           do {
             knt++;
-            for (k = jA; k <= i5; k++) {
+            for (k = jA; k <= i6; k++) {
               xnorm = T[k - 1].re;
               temp_im = T[k - 1].im;
               T[k - 1].re = 9.9792015476736E+291 * xnorm - 0.0 * temp_im;
@@ -144,8 +144,8 @@ void schur(const creal_T A[16], creal_T V[16], creal_T T[16])
           b_T.re = alpha1.re - beta1;
           b_T.im = alpha1.im;
           alpha1 = recip(b_T);
-          i5 = (jA - i) + 1;
-          for (k = jA; k <= i5; k++) {
+          i6 = (jA - i) + 1;
+          for (k = jA; k <= i6; k++) {
             xnorm = T[k - 1].re;
             temp_im = T[k - 1].im;
             T[k - 1].re = alpha1.re * xnorm - alpha1.im * temp_im;
@@ -175,8 +175,8 @@ void schur(const creal_T A[16], creal_T V[16], creal_T T[16])
           b_T.re = T[(i + (i << 2)) + 1].re - beta1;
           b_T.im = T[(i + (i << 2)) + 1].im;
           alpha1 = recip(b_T);
-          i5 = (jA - i) + 1;
-          for (k = jA; k <= i5; k++) {
+          i6 = (jA - i) + 1;
+          for (k = jA; k <= i6; k++) {
             xnorm = T[k - 1].re;
             temp_im = T[k - 1].im;
             T[k - 1].re = alpha1.re * xnorm - alpha1.im * temp_im;
@@ -236,13 +236,13 @@ void schur(const creal_T A[16], creal_T V[16], creal_T T[16])
           }
 
           ix = iv0;
-          i5 = (in + (lastv << 2)) + 1;
-          for (b_i = k; b_i <= i5; b_i += 4) {
+          i6 = (in + (lastv << 2)) + 1;
+          for (b_i = k; b_i <= i6; b_i += 4) {
             beta1 = T[ix - 1].re - 0.0 * T[ix - 1].im;
             c_im = T[ix - 1].im + 0.0 * T[ix - 1].re;
             knt = 0;
-            i6 = (b_i + lastc) - 1;
-            for (jA = b_i; jA <= i6; jA++) {
+            i7 = (b_i + lastc) - 1;
+            for (jA = b_i; jA <= i7; jA++) {
               work[knt].re += T[jA - 1].re * beta1 - T[jA - 1].im * c_im;
               work[knt].im += T[jA - 1].re * c_im + T[jA - 1].im * beta1;
               knt++;
@@ -262,9 +262,9 @@ void schur(const creal_T A[16], creal_T V[16], creal_T T[16])
               xnorm = T[knt].re * beta1 + T[knt].im * c_im;
               temp_im = T[knt].re * c_im - T[knt].im * beta1;
               ix = 0;
-              i5 = jA + 1;
-              i6 = lastc + jA;
-              for (b_i = i5; b_i <= i6; b_i++) {
+              i6 = jA + 1;
+              i7 = lastc + jA;
+              for (b_i = i6; b_i <= i7; b_i++) {
                 T[b_i - 1].re += work[ix].re * xnorm - work[ix].im * temp_im;
                 T[b_i - 1].im += work[ix].re * temp_im + work[ix].im * xnorm;
                 ix++;
@@ -287,13 +287,13 @@ void schur(const creal_T A[16], creal_T V[16], creal_T T[16])
     for (k = 2; k >= 0; k--) {
       jA = (k + 1) << 2;
       for (i = 0; i <= k; i++) {
-        i5 = jA + i;
-        V[i5].re = 0.0;
-        V[i5].im = 0.0;
+        i6 = jA + i;
+        V[i6].re = 0.0;
+        V[i6].im = 0.0;
       }
 
-      i5 = k + 3;
-      for (i = i5; i < 5; i++) {
+      i6 = k + 3;
+      for (i = i6; i < 5; i++) {
         knt = jA + i;
         V[knt - 1] = V[knt - 5];
       }
@@ -325,8 +325,8 @@ void schur(const creal_T A[16], creal_T V[16], creal_T T[16])
         jA = b_i + 2;
         beta1 = -tau[knt].re;
         c_im = -tau[knt].im;
-        i5 = (b_i - i) + 3;
-        for (k = jA; k <= i5; k++) {
+        i6 = (b_i - i) + 3;
+        for (k = jA; k <= i6; k++) {
           xnorm = V[k - 1].re;
           temp_im = V[k - 1].im;
           V[k - 1].re = beta1 * xnorm - c_im * temp_im;
@@ -337,9 +337,9 @@ void schur(const creal_T A[16], creal_T V[16], creal_T T[16])
       V[b_i].re = 1.0 - tau[knt].re;
       V[b_i].im = 0.0 - tau[knt].im;
       for (k = 0; k < i; k++) {
-        i5 = (b_i - k) - 1;
-        V[i5].re = 0.0;
-        V[i5].im = 0.0;
+        i6 = (b_i - k) - 1;
+        V[i6].re = 0.0;
+        V[i6].im = 0.0;
       }
 
       knt--;

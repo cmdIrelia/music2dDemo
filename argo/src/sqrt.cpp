@@ -2,7 +2,7 @@
 // File: sqrt.cpp
 //
 // MATLAB Coder version            : 4.1
-// C/C++ source code generated on  : 02-Feb-2019 23:40:29
+// C/C++ source code generated on  : 03-Feb-2019 02:46:35
 //
 
 // Include Files
@@ -92,13 +92,13 @@ void b_sqrt(creal_T *x)
 }
 
 //
-// Arguments    : double x[36421]
+// Arguments    : double x[25921]
 // Return Type  : void
 //
-void c_sqrt(double x[36421])
+void c_sqrt(double x[25921])
 {
   int k;
-  for (k = 0; k < 36421; k++) {
+  for (k = 0; k < 25921; k++) {
     x[k] = sqrt(x[k]);
   }
 }

@@ -2,7 +2,7 @@
 // File: music2D.cpp
 //
 // MATLAB Coder version            : 4.1
-// C/C++ source code generated on  : 02-Feb-2019 23:40:29
+// C/C++ source code generated on  : 03-Feb-2019 02:46:35
 //
 
 // Include Files
@@ -31,7 +31,7 @@ void music2D(const creal_T b_signal[4000], double rtn[2])
   phased_URA ura;
   phased_IsotropicAntennaElement lobj_2;
   phased_IsotropicAntennaElement lobj_4;
-  static double unusedU0[36421];
+  static double unusedU0[25921];
   lobj_3.matlabCodegenIsDeleted = true;
   musicazelspectrum.cSteeringVector.matlabCodegenIsDeleted = true;
   musicazelspectrum.cCovEstimator.matlabCodegenIsDeleted = true;
@@ -56,7 +56,7 @@ void music2D(const creal_T b_signal[4000], double rtn[2])
   //  MUSIC DOA Estimation with a URA
   // 'music2D:21' musicazelspectrum = phased.MUSICEstimator2D('SensorArray',ura,... 
   // 'music2D:22'         'OperatingFrequency',fc,...
-  // 'music2D:23'         'AzimuthScanAngles',-150:150,'ElevationScanAngles',-60:60,... 
+  // 'music2D:23'         'AzimuthScanAngles',-80:80,'ElevationScanAngles',-80:80,... 
   // 'music2D:24'         'DOAOutputPort',true,'NumSignalsSource','Property','NumSignals',1); 
   musicazelspectrum.isInitialized = 0;
   musicazelspectrum.SensorArray = &ura;

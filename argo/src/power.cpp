@@ -2,7 +2,7 @@
 // File: power.cpp
 //
 // MATLAB Coder version            : 4.1
-// C/C++ source code generated on  : 02-Feb-2019 23:40:29
+// C/C++ source code generated on  : 03-Feb-2019 02:46:35
 //
 
 // Include Files
@@ -24,17 +24,17 @@ static double rt_powd_snf(double u0, double u1);
 static double rt_powd_snf(double u0, double u1)
 {
   double y;
-  double d1;
   double d2;
+  double d3;
   if (rtIsNaN(u0) || rtIsNaN(u1)) {
     y = rtNaN;
   } else {
-    d1 = fabs(u0);
-    d2 = fabs(u1);
+    d2 = fabs(u0);
+    d3 = fabs(u1);
     if (rtIsInf(u1)) {
-      if (d1 == 1.0) {
+      if (d2 == 1.0) {
         y = 1.0;
-      } else if (d1 > 1.0) {
+      } else if (d2 > 1.0) {
         if (u1 > 0.0) {
           y = rtInf;
         } else {
@@ -45,9 +45,9 @@ static double rt_powd_snf(double u0, double u1)
       } else {
         y = rtInf;
       }
-    } else if (d2 == 0.0) {
+    } else if (d3 == 0.0) {
       y = 1.0;
-    } else if (d2 == 1.0) {
+    } else if (d3 == 1.0) {
       if (u1 > 0.0) {
         y = u0;
       } else {
@@ -68,14 +68,14 @@ static double rt_powd_snf(double u0, double u1)
 }
 
 //
-// Arguments    : const double a[903]
-//                double y[903]
+// Arguments    : const double a[483]
+//                double y[483]
 // Return Type  : void
 //
-void power(const double a[903], double y[903])
+void power(const double a[483], double y[483])
 {
   int k;
-  for (k = 0; k < 903; k++) {
+  for (k = 0; k < 483; k++) {
     y[k] = rt_powd_snf(a[k], 2.0);
   }
 }

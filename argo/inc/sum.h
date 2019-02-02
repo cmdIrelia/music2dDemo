@@ -2,7 +2,7 @@
 // File: sum.h
 //
 // MATLAB Coder version            : 4.1
-// C/C++ source code generated on  : 02-Feb-2019 23:40:29
+// C/C++ source code generated on  : 03-Feb-2019 02:46:35
 //
 #ifndef SUM_H
 #define SUM_H
@@ -15,10 +15,10 @@
 #include "music2D_types.h"
 
 // Function Declarations
-extern void b_sum(const double x[36421], double y[301]);
-extern double c_sum(const double x[301]);
-extern void d_sum(const boolean_T x[36421], double y[301]);
-extern void sum(const double x[903], double y[301]);
+extern void b_sum(const double x[25921], double y[161]);
+extern double c_sum(const double x[161]);
+extern void d_sum(const boolean_T x[25921], double y[161]);
+extern void sum(const double x[483], double y[161]);
 
 #endif
 

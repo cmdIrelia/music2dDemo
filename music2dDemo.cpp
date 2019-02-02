@@ -47,10 +47,10 @@ static void argInit_1000x4_creal_T(creal_T result[4000])
 
 	// Loop over the array to initialize each element.
 	for (idx0 = 0; idx0 < 1000; idx0++) {
-		result[idx0] = signal[0][idx0];
+		result[idx0] = 	      signal[1][idx0];
 		result[idx0 + 1000] = signal[0][idx0];
 		result[idx0 + 2000] = signal[1][idx0];
-		result[idx0 + 3000] = signal[1][idx0];
+		result[idx0 + 3000] = signal[0][idx0];
 	}
 }
 

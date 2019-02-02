@@ -2,7 +2,7 @@
 // File: sum.cpp
 //
 // MATLAB Coder version            : 4.1
-// C/C++ source code generated on  : 02-Feb-2019 23:40:29
+// C/C++ source code generated on  : 03-Feb-2019 02:46:35
 //
 
 // Include Files
@@ -14,34 +14,34 @@
 // Function Definitions
 
 //
-// Arguments    : const double x[36421]
-//                double y[301]
+// Arguments    : const double x[25921]
+//                double y[161]
 // Return Type  : void
 //
-void b_sum(const double x[36421], double y[301])
+void b_sum(const double x[25921], double y[161])
 {
   int i;
   int xpageoffset;
   int k;
-  for (i = 0; i < 301; i++) {
-    xpageoffset = i * 121;
+  for (i = 0; i < 161; i++) {
+    xpageoffset = i * 161;
     y[i] = x[xpageoffset];
-    for (k = 0; k < 120; k++) {
+    for (k = 0; k < 160; k++) {
       y[i] += x[(xpageoffset + k) + 1];
     }
   }
 }
 
 //
-// Arguments    : const double x[301]
+// Arguments    : const double x[161]
 // Return Type  : double
 //
-double c_sum(const double x[301])
+double c_sum(const double x[161])
 {
   double y;
   int k;
   y = x[0];
-  for (k = 0; k < 300; k++) {
+  for (k = 0; k < 160; k++) {
     y += x[k + 1];
   }
 
@@ -49,38 +49,38 @@ double c_sum(const double x[301])
 }
 
 //
-// Arguments    : const boolean_T x[36421]
-//                double y[301]
+// Arguments    : const boolean_T x[25921]
+//                double y[161]
 // Return Type  : void
 //
-void d_sum(const boolean_T x[36421], double y[301])
+void d_sum(const boolean_T x[25921], double y[161])
 {
   int i;
   int xpageoffset;
   int k;
-  for (i = 0; i < 301; i++) {
-    xpageoffset = i * 121;
+  for (i = 0; i < 161; i++) {
+    xpageoffset = i * 161;
     y[i] = x[xpageoffset];
-    for (k = 0; k < 120; k++) {
+    for (k = 0; k < 160; k++) {
       y[i] += (double)x[(xpageoffset + k) + 1];
     }
   }
 }
 
 //
-// Arguments    : const double x[903]
-//                double y[301]
+// Arguments    : const double x[483]
+//                double y[161]
 // Return Type  : void
 //
-void sum(const double x[903], double y[301])
+void sum(const double x[483], double y[161])
 {
   int k;
   int xoffset;
   int j;
-  memcpy(&y[0], &x[0], 301U * sizeof(double));
+  memcpy(&y[0], &x[0], 161U * sizeof(double));
   for (k = 0; k < 2; k++) {
-    xoffset = (k + 1) * 301;
-    for (j = 0; j < 301; j++) {
+    xoffset = (k + 1) * 161;
+    for (j = 0; j < 161; j++) {
       y[j] += x[xoffset + j];
     }
   }

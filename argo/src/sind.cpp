@@ -2,7 +2,7 @@
 // File: sind.cpp
 //
 // MATLAB Coder version            : 4.1
-// C/C++ source code generated on  : 02-Feb-2019 23:40:29
+// C/C++ source code generated on  : 03-Feb-2019 02:46:35
 //
 
 // Include Files
@@ -15,16 +15,16 @@
 // Function Definitions
 
 //
-// Arguments    : double x[301]
+// Arguments    : double x[161]
 // Return Type  : void
 //
-void b_sind(double x[301])
+void b_sind(double x[161])
 {
   int k;
   double b_x;
   double absx;
   signed char n;
-  for (k = 0; k < 301; k++) {
+  for (k = 0; k < 161; k++) {
     if (rtIsInf(x[k]) || rtIsNaN(x[k])) {
       x[k] = rtNaN;
     } else {

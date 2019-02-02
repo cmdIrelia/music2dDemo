@@ -2,7 +2,7 @@
 // File: elemdelay.cpp
 //
 // MATLAB Coder version            : 4.1
-// C/C++ source code generated on  : 02-Feb-2019 23:40:29
+// C/C++ source code generated on  : 03-Feb-2019 02:46:35
 //
 
 // Include Files
@@ -16,51 +16,51 @@
 
 //
 // Arguments    : const double pos[12]
-//                const double ang[602]
-//                double tau[1204]
+//                const double ang[322]
+//                double tau[644]
 // Return Type  : void
 //
-void elemdelay(const double pos[12], const double ang[602], double tau[1204])
+void elemdelay(const double pos[12], const double ang[322], double tau[644])
 {
-  int i7;
-  double incidentdir_tmp[301];
-  double dv7[301];
-  double dv8[301];
-  double dv9[301];
-  double b_incidentdir_tmp[903];
   int i8;
-  for (i7 = 0; i7 < 301; i7++) {
-    incidentdir_tmp[i7] = ang[1 + (i7 << 1)];
+  double incidentdir_tmp[161];
+  double dv7[161];
+  double dv8[161];
+  double dv9[161];
+  double b_incidentdir_tmp[483];
+  int i9;
+  for (i8 = 0; i8 < 161; i8++) {
+    incidentdir_tmp[i8] = ang[1 + (i8 << 1)];
   }
 
   b_cosd(incidentdir_tmp);
-  for (i7 = 0; i7 < 301; i7++) {
-    dv7[i7] = ang[i7 << 1];
-    incidentdir_tmp[i7] = -incidentdir_tmp[i7];
+  for (i8 = 0; i8 < 161; i8++) {
+    dv7[i8] = ang[i8 << 1];
+    incidentdir_tmp[i8] = -incidentdir_tmp[i8];
   }
 
   b_cosd(dv7);
-  for (i7 = 0; i7 < 301; i7++) {
-    dv8[i7] = ang[i7 << 1];
+  for (i8 = 0; i8 < 161; i8++) {
+    dv8[i8] = ang[i8 << 1];
   }
 
   b_sind(dv8);
-  for (i7 = 0; i7 < 301; i7++) {
-    dv9[i7] = ang[1 + (i7 << 1)];
+  for (i8 = 0; i8 < 161; i8++) {
+    dv9[i8] = ang[1 + (i8 << 1)];
   }
 
   b_sind(dv9);
-  for (i7 = 0; i7 < 301; i7++) {
-    b_incidentdir_tmp[3 * i7] = incidentdir_tmp[i7] * dv7[i7];
-    b_incidentdir_tmp[1 + 3 * i7] = incidentdir_tmp[i7] * dv8[i7];
-    b_incidentdir_tmp[2 + 3 * i7] = -dv9[i7];
+  for (i8 = 0; i8 < 161; i8++) {
+    b_incidentdir_tmp[3 * i8] = incidentdir_tmp[i8] * dv7[i8];
+    b_incidentdir_tmp[1 + 3 * i8] = incidentdir_tmp[i8] * dv8[i8];
+    b_incidentdir_tmp[2 + 3 * i8] = -dv9[i8];
   }
 
-  for (i7 = 0; i7 < 4; i7++) {
-    for (i8 = 0; i8 < 301; i8++) {
-      tau[i7 + (i8 << 2)] = ((pos[3 * i7] * b_incidentdir_tmp[3 * i8] + pos[1 +
-        3 * i7] * b_incidentdir_tmp[1 + 3 * i8]) + pos[2 + 3 * i7] *
-        b_incidentdir_tmp[2 + 3 * i8]) / 2.99792458E+8;
+  for (i8 = 0; i8 < 4; i8++) {
+    for (i9 = 0; i9 < 161; i9++) {
+      tau[i8 + (i9 << 2)] = ((pos[3 * i8] * b_incidentdir_tmp[3 * i9] + pos[1 +
+        3 * i8] * b_incidentdir_tmp[1 + 3 * i9]) + pos[2 + 3 * i8] *
+        b_incidentdir_tmp[2 + 3 * i9]) / 2.99792458E+8;
     }
   }
 }

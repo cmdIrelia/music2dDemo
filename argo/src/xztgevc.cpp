@@ -2,7 +2,7 @@
 // File: xztgevc.cpp
 //
 // MATLAB Coder version            : 4.1
-// C/C++ source code generated on  : 02-Feb-2019 23:40:29
+// C/C++ source code generated on  : 03-Feb-2019 02:46:35
 //
 
 // Include Files
@@ -40,12 +40,12 @@ void xztgevc(const creal_T A[16], creal_T V[16])
   double acoefa;
   creal_T work1[4];
   double dmin;
-  int i17;
+  int i18;
   creal_T work2[4];
   int b_j;
   int d_re_tmp;
   double d_im;
-  int i18;
+  int i19;
   rworka[0] = 0.0;
   rworka[1] = 0.0;
   rworka[2] = 0.0;
@@ -159,16 +159,16 @@ void xztgevc(const creal_T A[16], creal_T V[16])
       dmin = 2.2250738585072014E-308;
     }
 
-    i17 = 2 - je;
-    for (i = 0; i <= i17; i++) {
+    i18 = 2 - je;
+    for (i = 0; i <= i18; i++) {
       work1[i].re = acoeff * A[i + x_tmp].re;
       work1[i].im = acoeff * A[i + ((3 - je) << 2)].im;
     }
 
     work1[3 - je].re = 1.0;
     work1[3 - je].im = 0.0;
-    i17 = (int)((1.0 + (-1.0 - ((4.0 + -(double)je) - 1.0))) / -1.0);
-    for (j = 0; j < i17; j++) {
+    i18 = (int)((1.0 + (-1.0 - ((4.0 + -(double)je) - 1.0))) / -1.0);
+    for (j = 0; j < i18; j++) {
       b_j = 2 - (je + j);
       d_re_tmp = b_j << 2;
       d_re = acoeff * A[b_j + d_re_tmp].re - salpha_re;
@@ -183,8 +183,8 @@ void xztgevc(const creal_T A[16], creal_T V[16])
         z = fabs(work1[b_j].re) + fabs(work1[b_j].im);
         if (z >= 1.1235582092889474E+307 * xmx) {
           temp = 1.0 / z;
-          i18 = 3 - je;
-          for (i = 0; i <= i18; i++) {
+          i19 = 3 - je;
+          for (i = 0; i <= i19; i++) {
             work1[i].re *= temp;
             work1[i].im *= temp;
           }
@@ -250,8 +250,8 @@ void xztgevc(const creal_T A[16], creal_T V[16])
         if (xmx > 1.0) {
           temp = 1.0 / xmx;
           if (acoefa * rworka[b_j] >= 1.1235582092889474E+307 * temp) {
-            i18 = 3 - je;
-            for (i = 0; i <= i18; i++) {
+            i19 = 3 - je;
+            for (i = 0; i <= i19; i++) {
               work1[i].re *= temp;
               work1[i].im *= temp;
             }
@@ -276,8 +276,8 @@ void xztgevc(const creal_T A[16], creal_T V[16])
     work2[2].im = 0.0;
     work2[3].re = 0.0;
     work2[3].im = 0.0;
-    i17 = 3 - je;
-    for (i = 0; i <= i17; i++) {
+    i18 = 3 - je;
+    for (i = 0; i <= i18; i++) {
       b_j = i << 2;
       work2[0].re += V[b_j].re * work1[i].re - V[i << 2].im * work1[i].im;
       work2[0].im += V[i << 2].re * work1[i].im + V[i << 2].im * work1[i].re;
@@ -324,15 +324,15 @@ void xztgevc(const creal_T A[16], creal_T V[16])
     } else {
       V[x_tmp].re = 0.0;
       V[x_tmp].im = 0.0;
-      i17 = 1 + x_tmp;
-      V[i17].re = 0.0;
-      V[i17].im = 0.0;
-      i17 = 2 + x_tmp;
-      V[i17].re = 0.0;
-      V[i17].im = 0.0;
-      i17 = 3 + x_tmp;
-      V[i17].re = 0.0;
-      V[i17].im = 0.0;
+      i18 = 1 + x_tmp;
+      V[i18].re = 0.0;
+      V[i18].im = 0.0;
+      i18 = 2 + x_tmp;
+      V[i18].re = 0.0;
+      V[i18].im = 0.0;
+      i18 = 3 + x_tmp;
+      V[i18].re = 0.0;
+      V[i18].im = 0.0;
     }
   }
 }

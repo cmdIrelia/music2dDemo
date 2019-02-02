@@ -2,7 +2,7 @@
 // File: isequal.h
 //
 // MATLAB Coder version            : 4.1
-// C/C++ source code generated on  : 02-Feb-2019 23:40:29
+// C/C++ source code generated on  : 03-Feb-2019 02:46:35
 //
 #ifndef ISEQUAL_H
 #define ISEQUAL_H
@@ -15,8 +15,8 @@
 #include "music2D_types.h"
 
 // Function Declarations
-extern boolean_T isequal(const double varargin_1[35581], const double
-  varargin_2[35581]);
+extern boolean_T isequal(const double varargin_1[25281], const double
+  varargin_2[25281]);
 
 #endif
 

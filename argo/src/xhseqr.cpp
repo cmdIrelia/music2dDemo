@@ -2,7 +2,7 @@
 // File: xhseqr.cpp
 //
 // MATLAB Coder version            : 4.1
-// C/C++ source code generated on  : 02-Feb-2019 23:40:29
+// C/C++ source code generated on  : 03-Feb-2019 02:46:35
 //
 
 // Include Files
@@ -27,7 +27,7 @@ int xhseqr(creal_T h[16], creal_T z[16])
 {
   int info;
   int i;
-  int i15;
+  int i16;
   boolean_T exitg1;
   double tst;
   double ab;
@@ -47,7 +47,7 @@ int xhseqr(creal_T h[16], creal_T z[16])
   boolean_T goto70;
   creal_T v;
   int m;
-  int i16;
+  int i17;
   double u_re;
   double u_im;
   int b_k;
@@ -64,8 +64,8 @@ int xhseqr(creal_T h[16], creal_T z[16])
   h[7].re = 0.0;
   h[7].im = 0.0;
   for (i = 0; i < 3; i++) {
-    i15 = (i + (i << 2)) + 1;
-    if (h[i15].im != 0.0) {
+    i16 = (i + (i << 2)) + 1;
+    if (h[i16].im != 0.0) {
       tst = h[(i + (i << 2)) + 1].re;
       ab = h[(i + (i << 2)) + 1].im;
       br = fabs(h[(i + (i << 2)) + 1].re) + fabs(h[(i + (i << 2)) + 1].im);
@@ -92,13 +92,13 @@ int xhseqr(creal_T h[16], creal_T z[16])
         sc.im = -sc.im / br;
       }
 
-      h[i15].re = rt_hypotd_snf(h[(i + (i << 2)) + 1].re, h[(i + (i << 2)) + 1].
+      h[i16].re = rt_hypotd_snf(h[(i + (i << 2)) + 1].re, h[(i + (i << 2)) + 1].
         im);
-      h[i15].im = 0.0;
+      h[i16].im = 0.0;
       ix0_tmp = (i + 1) << 2;
       knt = (i + ix0_tmp) + 2;
-      i15 = knt + ((2 - i) << 2);
-      for (k = knt; k <= i15; k += 4) {
+      i16 = knt + ((2 - i) << 2);
+      for (k = knt; k <= i16; k += 4) {
         ab = h[k - 1].re;
         tst = h[k - 1].im;
         h[k - 1].re = sc.re * ab - sc.im * tst;
@@ -109,13 +109,13 @@ int xhseqr(creal_T h[16], creal_T z[16])
       t_re = sc.re;
       t_im = -sc.im;
       if (4 < i + 3) {
-        i16 = 1;
+        i17 = 1;
       } else {
-        i16 = i;
+        i17 = i;
       }
 
-      i15 = ix0_tmp + i16;
-      for (k = knt; k <= i15 + 3; k++) {
+      i16 = ix0_tmp + i17;
+      for (k = knt; k <= i16 + 3; k++) {
         ab = h[k - 1].re;
         tst = h[k - 1].im;
         h[k - 1].re = t_re * ab - t_im * tst;
@@ -124,8 +124,8 @@ int xhseqr(creal_T h[16], creal_T z[16])
 
       t_re = sc.re;
       t_im = -sc.im;
-      i15 = ix0_tmp + 4;
-      for (k = knt; k <= i15; k++) {
+      i16 = ix0_tmp + 4;
+      for (k = knt; k <= i16; k++) {
         ab = z[k - 1].re;
         tst = z[k - 1].im;
         z[k - 1].re = t_re * ab - t_im * tst;
@@ -145,15 +145,15 @@ int xhseqr(creal_T h[16], creal_T z[16])
       k = i;
       exitg3 = false;
       while ((!exitg3) && (k + 1 > L + 2)) {
-        i15 = k + ((k - 1) << 2);
-        ab = fabs(h[i15].re);
+        i16 = k + ((k - 1) << 2);
+        ab = fabs(h[i16].re);
         ba = ab + fabs(h[k + ((k - 1) << 2)].im);
         if (ba <= 4.0083367200179456E-292) {
           exitg3 = true;
         } else {
           knt = k + (k << 2);
           t_im = fabs(h[knt].re) + fabs(h[k + (k << 2)].im);
-          tst = (fabs(h[i15 - 1].re) + fabs(h[(k + ((k - 1) << 2)) - 1].im)) +
+          tst = (fabs(h[i16 - 1].re) + fabs(h[(k + ((k - 1) << 2)) - 1].im)) +
             t_im;
           if (tst == 0.0) {
             if (k - 1 >= 1) {
@@ -502,12 +502,12 @@ int xhseqr(creal_T h[16], creal_T z[16])
           }
 
           if (b_k + 2 < i + 1) {
-            i15 = b_k + 1;
+            i16 = b_k + 1;
           } else {
-            i15 = i;
+            i16 = i;
           }
 
-          for (j = 0; j <= i15; j++) {
+          for (j = 0; j <= i16; j++) {
             ix0_tmp = j + ((b_k - 1) << 2);
             knt = j + (b_k << 2);
             sc.re = (t_re * h[ix0_tmp].re - t_im * h[j + ((b_k - 1) << 2)].im) +
@@ -587,8 +587,8 @@ int xhseqr(creal_T h[16], creal_T z[16])
               if (j != m + 1) {
                 if (4 > j) {
                   knt = j + (j << 2);
-                  i15 = knt + ((3 - j) << 2);
-                  for (c_k = knt; c_k <= i15; c_k += 4) {
+                  i16 = knt + ((3 - j) << 2);
+                  for (c_k = knt; c_k <= i16; c_k += 4) {
                     ab = h[c_k - 1].re;
                     tst = h[c_k - 1].im;
                     h[c_k - 1].re = sc.re * ab - sc.im * tst;
@@ -600,8 +600,8 @@ int xhseqr(creal_T h[16], creal_T z[16])
                 knt = ix0_tmp + 1;
                 t_re = sc.re;
                 t_im = -sc.im;
-                i15 = (ix0_tmp + j) - 1;
-                for (c_k = knt; c_k <= i15; c_k++) {
+                i16 = (ix0_tmp + j) - 1;
+                for (c_k = knt; c_k <= i16; c_k++) {
                   ab = h[c_k - 1].re;
                   tst = h[c_k - 1].im;
                   h[c_k - 1].re = t_re * ab - t_im * tst;
@@ -610,8 +610,8 @@ int xhseqr(creal_T h[16], creal_T z[16])
 
                 t_re = sc.re;
                 t_im = -sc.im;
-                i15 = ix0_tmp + 4;
-                for (c_k = knt; c_k <= i15; c_k++) {
+                i16 = ix0_tmp + 4;
+                for (c_k = knt; c_k <= i16; c_k++) {
                   ab = z[c_k - 1].re;
                   tst = z[c_k - 1].im;
                   z[c_k - 1].re = t_re * ab - t_im * tst;
@@ -642,8 +642,8 @@ int xhseqr(creal_T h[16], creal_T z[16])
             knt = (i + ((i + 1) << 2)) + 1;
             t_re = sc.re;
             t_im = -sc.im;
-            i15 = knt + ((2 - i) << 2);
-            for (k = knt; k <= i15; k += 4) {
+            i16 = knt + ((2 - i) << 2);
+            for (k = knt; k <= i16; k += 4) {
               ab = h[k - 1].re;
               tst = h[k - 1].im;
               h[k - 1].re = t_re * ab - t_im * tst;
@@ -652,16 +652,16 @@ int xhseqr(creal_T h[16], creal_T z[16])
           }
 
           ix0_tmp = (i << 2) + 1;
-          i15 = (i << 2) + i;
-          for (k = ix0_tmp; k <= i15; k++) {
+          i16 = (i << 2) + i;
+          for (k = ix0_tmp; k <= i16; k++) {
             ab = h[k - 1].re;
             tst = h[k - 1].im;
             h[k - 1].re = sc.re * ab - sc.im * tst;
             h[k - 1].im = sc.re * tst + sc.im * ab;
           }
 
-          i15 = (i << 2) + 4;
-          for (k = ix0_tmp; k <= i15; k++) {
+          i16 = (i << 2) + 4;
+          for (k = ix0_tmp; k <= i16; k++) {
             ab = z[k - 1].re;
             tst = z[k - 1].im;
             z[k - 1].re = sc.re * ab - sc.im * tst;

@@ -2,7 +2,7 @@
 // File: sortIdx.cpp
 //
 // MATLAB Coder version            : 4.1
-// C/C++ source code generated on  : 02-Feb-2019 23:40:29
+// C/C++ source code generated on  : 03-Feb-2019 02:46:35
 //
 
 // Include Files
@@ -18,8 +18,8 @@ static void b_merge_block(emxArray_int32_T *idx, emxArray_real_T *x, int offset,
   int n, int preSortLevel, emxArray_int32_T *iwork, emxArray_real_T *xwork);
 static void b_merge_pow2_block(emxArray_int32_T *idx, emxArray_real_T *x, int
   offset);
-static void merge(int idx[36421], double x[36421], int offset, int np, int nq,
-                  int iwork[36421], double xwork[36421]);
+static void merge(int idx[25921], double x[25921], int offset, int np, int nq,
+                  int iwork[25921], double xwork[25921]);
 
 // Function Definitions
 
@@ -39,15 +39,15 @@ static void b_merge(emxArray_int32_T *idx, emxArray_real_T *x, int offset, int
   int n_tmp;
   int iout;
   int p;
-  int i22;
+  int i23;
   int q;
   int exitg1;
   if (nq != 0) {
     n_tmp = np + nq;
     for (iout = 0; iout < n_tmp; iout++) {
-      i22 = offset + iout;
-      iwork->data[iout] = idx->data[i22];
-      xwork->data[iout] = x->data[i22];
+      i23 = offset + iout;
+      iwork->data[iout] = idx->data[i23];
+      xwork->data[iout] = x->data[i23];
     }
 
     p = 0;
@@ -72,9 +72,9 @@ static void b_merge(emxArray_int32_T *idx, emxArray_real_T *x, int offset, int
         } else {
           q = iout - p;
           for (iout = p + 1; iout <= np; iout++) {
-            i22 = q + iout;
-            idx->data[i22] = iwork->data[iout - 1];
-            x->data[i22] = xwork->data[iout - 1];
+            i23 = q + iout;
+            idx->data[i23] = iwork->data[iout - 1];
+            x->data[i23] = xwork->data[iout - 1];
           }
 
           exitg1 = 1;
@@ -197,30 +197,30 @@ static void b_merge_pow2_block(emxArray_int32_T *idx, emxArray_real_T *x, int
 }
 
 //
-// Arguments    : int idx[36421]
-//                double x[36421]
+// Arguments    : int idx[25921]
+//                double x[25921]
 //                int offset
 //                int np
 //                int nq
-//                int iwork[36421]
-//                double xwork[36421]
+//                int iwork[25921]
+//                double xwork[25921]
 // Return Type  : void
 //
-static void merge(int idx[36421], double x[36421], int offset, int np, int nq,
-                  int iwork[36421], double xwork[36421])
+static void merge(int idx[25921], double x[25921], int offset, int np, int nq,
+                  int iwork[25921], double xwork[25921])
 {
   int n_tmp;
   int iout;
   int p;
-  int i19;
+  int i20;
   int q;
   int exitg1;
   if (nq != 0) {
     n_tmp = np + nq;
     for (iout = 0; iout < n_tmp; iout++) {
-      i19 = offset + iout;
-      iwork[iout] = idx[i19];
-      xwork[iout] = x[i19];
+      i20 = offset + iout;
+      iwork[iout] = idx[i20];
+      xwork[iout] = x[i20];
     }
 
     p = 0;
@@ -245,9 +245,9 @@ static void merge(int idx[36421], double x[36421], int offset, int np, int nq,
         } else {
           q = iout - p;
           for (iout = p + 1; iout <= np; iout++) {
-            i19 = q + iout;
-            idx[i19] = iwork[iout - 1];
-            x[i19] = xwork[iout - 1];
+            i20 = q + iout;
+            idx[i20] = iwork[iout - 1];
+            x[i20] = xwork[iout - 1];
           }
 
           exitg1 = 1;
@@ -258,17 +258,17 @@ static void merge(int idx[36421], double x[36421], int offset, int np, int nq,
 }
 
 //
-// Arguments    : int idx[36421]
-//                double x[36421]
+// Arguments    : int idx[25921]
+//                double x[25921]
 //                int offset
 //                int n
 //                int preSortLevel
-//                int iwork[36421]
-//                double xwork[36421]
+//                int iwork[25921]
+//                double xwork[25921]
 // Return Type  : void
 //
-void merge_block(int idx[36421], double x[36421], int offset, int n, int
-                 preSortLevel, int iwork[36421], double xwork[36421])
+void merge_block(int idx[25921], double x[25921], int offset, int n, int
+                 preSortLevel, int iwork[25921], double xwork[25921])
 {
   int nPairs;
   int bLen;
@@ -301,12 +301,12 @@ void merge_block(int idx[36421], double x[36421], int offset, int n, int
 }
 
 //
-// Arguments    : int idx[36421]
-//                double x[36421]
+// Arguments    : int idx[25921]
+//                double x[25921]
 //                int offset
 // Return Type  : void
 //
-void merge_pow2_block(int idx[36421], double x[36421], int offset)
+void merge_pow2_block(int idx[25921], double x[25921], int offset)
 {
   int b;
   int bLen;
@@ -375,13 +375,13 @@ void merge_pow2_block(int idx[36421], double x[36421], int offset)
 //
 void sortIdx(emxArray_real_T *x, emxArray_int32_T *idx)
 {
-  unsigned short x_idx_0;
-  int i21;
+  short x_idx_0;
+  int i22;
   int ib;
   int n;
   int b_n;
   double x4[4];
-  unsigned short idx4[4];
+  short idx4[4];
   emxArray_int32_T *iwork;
   emxArray_real_T *xwork;
   int nNaNs;
@@ -391,58 +391,58 @@ void sortIdx(emxArray_real_T *x, emxArray_int32_T *idx)
   int i1;
   int i3;
   int i4;
-  double d7;
   double d8;
-  x_idx_0 = (unsigned short)x->size[0];
-  i21 = idx->size[0];
+  double d9;
+  x_idx_0 = (short)x->size[0];
+  i22 = idx->size[0];
   idx->size[0] = x_idx_0;
-  emxEnsureCapacity_int32_T(idx, i21);
+  emxEnsureCapacity_int32_T(idx, i22);
   ib = x_idx_0;
-  for (i21 = 0; i21 < ib; i21++) {
-    idx->data[i21] = 0;
+  for (i22 = 0; i22 < ib; i22++) {
+    idx->data[i22] = 0;
   }
 
   if (x->size[0] != 0) {
     n = x->size[0];
     b_n = x->size[0];
     x4[0] = 0.0;
-    idx4[0] = 0U;
+    idx4[0] = 0;
     x4[1] = 0.0;
-    idx4[1] = 0U;
+    idx4[1] = 0;
     x4[2] = 0.0;
-    idx4[2] = 0U;
+    idx4[2] = 0;
     x4[3] = 0.0;
-    idx4[3] = 0U;
+    idx4[3] = 0;
     emxInit_int32_T(&iwork, 1);
-    i21 = iwork->size[0];
+    i22 = iwork->size[0];
     iwork->size[0] = x_idx_0;
-    emxEnsureCapacity_int32_T(iwork, i21);
+    emxEnsureCapacity_int32_T(iwork, i22);
     ib = x_idx_0;
-    for (i21 = 0; i21 < ib; i21++) {
-      iwork->data[i21] = 0;
+    for (i22 = 0; i22 < ib; i22++) {
+      iwork->data[i22] = 0;
     }
 
     emxInit_real_T(&xwork, 1);
-    x_idx_0 = (unsigned short)x->size[0];
-    i21 = xwork->size[0];
+    x_idx_0 = (short)x->size[0];
+    i22 = xwork->size[0];
     xwork->size[0] = x_idx_0;
-    emxEnsureCapacity_real_T(xwork, i21);
+    emxEnsureCapacity_real_T(xwork, i22);
     ib = x_idx_0;
-    for (i21 = 0; i21 < ib; i21++) {
-      xwork->data[i21] = 0.0;
+    for (i22 = 0; i22 < ib; i22++) {
+      xwork->data[i22] = 0.0;
     }
 
     nNaNs = 0;
     ib = -1;
     for (k = 0; k < b_n; k++) {
       if (rtIsNaN(x->data[k])) {
-        i21 = (b_n - nNaNs) - 1;
-        idx->data[i21] = k + 1;
-        xwork->data[i21] = x->data[k];
+        i22 = (b_n - nNaNs) - 1;
+        idx->data[i22] = k + 1;
+        xwork->data[i22] = x->data[k];
         nNaNs++;
       } else {
         ib++;
-        idx4[ib] = (unsigned short)(k + 1);
+        idx4[ib] = (short)(k + 1);
         x4[ib] = x->data[k];
         if (ib + 1 == 4) {
           quartetOffset = k - nNaNs;
@@ -462,10 +462,10 @@ void sortIdx(emxArray_real_T *x, emxArray_int32_T *idx)
             i4 = 3;
           }
 
-          d7 = x4[i1 - 1];
-          d8 = x4[i3 - 1];
-          if (d7 >= d8) {
-            if (x4[ib - 1] >= d8) {
+          d8 = x4[i1 - 1];
+          d9 = x4[i3 - 1];
+          if (d8 >= d9) {
+            if (x4[ib - 1] >= d9) {
               perm[0] = (signed char)i1;
               perm[1] = (signed char)ib;
               perm[2] = (signed char)i3;
@@ -482,9 +482,9 @@ void sortIdx(emxArray_real_T *x, emxArray_int32_T *idx)
               perm[3] = (signed char)ib;
             }
           } else {
-            d8 = x4[i4 - 1];
-            if (d7 >= d8) {
-              if (x4[ib - 1] >= d8) {
+            d9 = x4[i4 - 1];
+            if (d8 >= d9) {
+              if (x4[ib - 1] >= d9) {
                 perm[0] = (signed char)i3;
                 perm[1] = (signed char)i1;
                 perm[2] = (signed char)ib;
@@ -503,15 +503,15 @@ void sortIdx(emxArray_real_T *x, emxArray_int32_T *idx)
             }
           }
 
-          i21 = perm[0] - 1;
-          idx->data[quartetOffset - 3] = idx4[i21];
+          i22 = perm[0] - 1;
+          idx->data[quartetOffset - 3] = idx4[i22];
           i4 = perm[1] - 1;
           idx->data[quartetOffset - 2] = idx4[i4];
           i1 = perm[2] - 1;
           idx->data[quartetOffset - 1] = idx4[i1];
           ib = perm[3] - 1;
           idx->data[quartetOffset] = idx4[ib];
-          x->data[quartetOffset - 3] = x4[i21];
+          x->data[quartetOffset - 3] = x4[i22];
           x->data[quartetOffset - 2] = x4[i4];
           x->data[quartetOffset - 1] = x4[i1];
           x->data[quartetOffset] = x4[ib];
@@ -520,7 +520,7 @@ void sortIdx(emxArray_real_T *x, emxArray_int32_T *idx)
       }
     }
 
-    i21 = (b_n - nNaNs) - 1;
+    i22 = (b_n - nNaNs) - 1;
     if (ib + 1 > 0) {
       perm[1] = 0;
       perm[2] = 0;
@@ -565,7 +565,7 @@ void sortIdx(emxArray_real_T *x, emxArray_int32_T *idx)
 
       for (k = 0; k <= ib; k++) {
         i4 = perm[k] - 1;
-        i1 = (i21 - ib) + k;
+        i1 = (i22 - ib) + k;
         idx->data[i1] = idx4[i4];
         x->data[i1] = x4[i4];
       }
@@ -573,7 +573,7 @@ void sortIdx(emxArray_real_T *x, emxArray_int32_T *idx)
 
     ib = (nNaNs >> 1) + 1;
     for (k = 0; k <= ib - 2; k++) {
-      i1 = (i21 + k) + 1;
+      i1 = (i22 + k) + 1;
       i3 = idx->data[i1];
       i4 = (b_n - k) - 1;
       idx->data[i1] = idx->data[i4];
@@ -583,8 +583,8 @@ void sortIdx(emxArray_real_T *x, emxArray_int32_T *idx)
     }
 
     if ((nNaNs & 1) != 0) {
-      i21 += ib;
-      x->data[i21] = xwork->data[i21];
+      i22 += ib;
+      x->data[i22] = xwork->data[i22];
     }
 
     i3 = n - nNaNs;
@@ -612,15 +612,15 @@ void sortIdx(emxArray_real_T *x, emxArray_int32_T *idx)
 
     if ((nNaNs > 0) && (i3 > 0)) {
       for (k = 0; k < nNaNs; k++) {
-        i21 = i3 + k;
-        xwork->data[k] = x->data[i21];
-        iwork->data[k] = idx->data[i21];
+        i22 = i3 + k;
+        xwork->data[k] = x->data[i22];
+        iwork->data[k] = idx->data[i22];
       }
 
       for (k = i3; k >= 1; k--) {
-        i21 = (nNaNs + k) - 1;
-        x->data[i21] = x->data[k - 1];
-        idx->data[i21] = idx->data[k - 1];
+        i22 = (nNaNs + k) - 1;
+        x->data[i22] = x->data[k - 1];
+        idx->data[i22] = idx->data[k - 1];
       }
 
       for (k = 0; k < nNaNs; k++) {

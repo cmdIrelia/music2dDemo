@@ -2,7 +2,7 @@
 // File: SystemCore.cpp
 //
 // MATLAB Coder version            : 4.1
-// C/C++ source code generated on  : 02-Feb-2019 23:40:29
+// C/C++ source code generated on  : 03-Feb-2019 02:46:35
 //
 
 // Include Files
@@ -36,13 +36,13 @@ static void SystemCore_setupAndReset(phased_MUSICEstimator2D *obj)
 //                const creal_T varargin_1[4000]
 //                phased_URA *iobj_0
 //                phased_IsotropicAntennaElement *iobj_1
-//                double varargout_1[36421]
+//                double varargout_1[25921]
 //                double varargout_2[2]
 // Return Type  : void
 //
 void SystemCore_parenReference(phased_MUSICEstimator2D *obj, const creal_T
   varargin_1[4000], phased_URA *iobj_0, phased_IsotropicAntennaElement *iobj_1,
-  double varargout_1[36421], double varargout_2[2])
+  double varargout_1[25921], double varargout_2[2])
 {
   if (obj->isInitialized != 1) {
     SystemCore_setupAndReset(obj);
@@ -72,15 +72,15 @@ void SystemCore_step(c_phased_internal_SpatialCovEst *obj, const creal_T
 
 //
 // Arguments    : phased_SteeringVector *obj
-//                const double varargin_2[602]
+//                const double varargin_2[322]
 //                phased_URA *iobj_0
 //                phased_IsotropicAntennaElement *iobj_1
-//                creal_T varargout_1[1204]
+//                creal_T varargout_1[644]
 // Return Type  : void
 //
-void b_SystemCore_step(phased_SteeringVector *obj, const double varargin_2[602],
+void b_SystemCore_step(phased_SteeringVector *obj, const double varargin_2[322],
   phased_URA *iobj_0, phased_IsotropicAntennaElement *iobj_1, creal_T
-  varargout_1[1204])
+  varargout_1[644])
 {
   if (obj->isInitialized != 1) {
     obj->isSetupComplete = false;

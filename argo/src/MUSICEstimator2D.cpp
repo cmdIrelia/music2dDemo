@@ -2,7 +2,7 @@
 // File: MUSICEstimator2D.cpp
 //
 // MATLAB Coder version            : 4.1
-// C/C++ source code generated on  : 02-Feb-2019 23:40:29
+// C/C++ source code generated on  : 03-Feb-2019 02:46:35
 //
 
 // Include Files
@@ -536,17 +536,17 @@ static void c_MUSICEstimator2D_privDOASpect(phased_MUSICEstimator2D *obj, const
   creal_T eigenvects[16];
   phased_SteeringVector *hsv;
   int m;
-  unsigned short u0;
-  int i1;
-  unsigned short tempidx[301];
-  double tempangle[602];
-  creal_T sv[1204];
+  short i1;
+  int i2;
+  short tempidx[161];
+  double tempangle[322];
+  creal_T sv[644];
   int tempangle_tmp;
   int b_tempangle_tmp;
-  creal_T b_sv[903];
-  double dv3[903];
-  double dv4[903];
-  double dv5[301];
+  creal_T b_sv[483];
+  double dv3[483];
+  double dv4[483];
+  double dv5[161];
   int sv_re_tmp;
   int b_sv_re_tmp;
   int c_sv_re_tmp;
@@ -557,27 +557,27 @@ static void c_MUSICEstimator2D_privDOASpect(phased_MUSICEstimator2D *obj, const
   SystemCore_step(&obj->cCovEstimator, X, Cx);
   MUSICEstimator2D_privEig(Cx, eigenvals, eigenvects);
   hsv = &obj->cSteeringVector;
-  for (m = 0; m < 121; m++) {
-    u0 = (unsigned short)(301U * m + 1U);
-    for (i1 = 0; i1 < 301; i1++) {
-      tempidx[i1] = (unsigned short)((unsigned int)i1 + u0);
+  for (m = 0; m < 161; m++) {
+    i1 = (short)(161 * m + 1);
+    for (i2 = 0; i2 < 161; i2++) {
+      tempidx[i2] = (short)(i2 + i1);
     }
 
-    for (i1 = 0; i1 < 301; i1++) {
-      tempangle_tmp = (tempidx[i1] - 1) << 1;
-      b_tempangle_tmp = i1 << 1;
+    for (i2 = 0; i2 < 161; i2++) {
+      tempangle_tmp = (tempidx[i2] - 1) << 1;
+      b_tempangle_tmp = i2 << 1;
       tempangle[b_tempangle_tmp] = obj->pScanAngles[tempangle_tmp];
       tempangle[1 + b_tempangle_tmp] = obj->pScanAngles[1 + tempangle_tmp];
     }
 
     b_SystemCore_step(hsv, tempangle, iobj_0, iobj_1, sv);
     eps();
-    for (i1 = 0; i1 < 301; i1++) {
+    for (i2 = 0; i2 < 161; i2++) {
       for (tempangle_tmp = 0; tempangle_tmp < 3; tempangle_tmp++) {
-        b_tempangle_tmp = i1 + 301 * tempangle_tmp;
+        b_tempangle_tmp = i2 + 161 * tempangle_tmp;
         b_sv[b_tempangle_tmp].re = 0.0;
         b_sv[b_tempangle_tmp].im = 0.0;
-        sv_re_tmp = i1 << 2;
+        sv_re_tmp = i2 << 2;
         b_sv_re_tmp = (1 + tempangle_tmp) << 2;
         c_sv_re_tmp = 1 + sv_re_tmp;
         d_sv_re_tmp = 2 + sv_re_tmp;
@@ -608,8 +608,8 @@ static void c_MUSICEstimator2D_privDOASpect(phased_MUSICEstimator2D *obj, const
     b_abs(b_sv, dv3);
     power(dv3, dv4);
     sum(dv4, dv5);
-    for (i1 = 0; i1 < 301; i1++) {
-      obj->pPattern[tempidx[i1] - 1] = 1.0 / (dv5[i1] + 2.2204460492503131E-16);
+    for (i2 = 0; i2 < 161; i2++) {
+      obj->pPattern[tempidx[i2] - 1] = 1.0 / (dv5[i2] + 2.2204460492503131E-16);
     }
   }
 }
@@ -619,28 +619,28 @@ static void c_MUSICEstimator2D_privDOASpect(phased_MUSICEstimator2D *obj, const
 //                const creal_T X[4000]
 //                phased_URA *iobj_0
 //                phased_IsotropicAntennaElement *iobj_1
-//                double scanpattern[36421]
+//                double scanpattern[25921]
 //                double doasOut[2]
 // Return Type  : void
 //
 void MUSICEstimator2D_stepImpl(phased_MUSICEstimator2D *obj, const creal_T X
   [4000], phased_URA *iobj_0, phased_IsotropicAntennaElement *iobj_1, double
-  scanpattern[36421], double doasOut[2])
+  scanpattern[25921], double doasOut[2])
 {
   int i;
-  static double dv2[36421];
+  static double dv2[25921];
   double rowIndex_data[1];
   int rowIndex_size[1];
   double colIndex_data[1];
   int colIndex_size[1];
   int i0;
   c_MUSICEstimator2D_privDOASpect(obj, X, iobj_0, iobj_1);
-  for (i = 0; i < 36421; i++) {
+  for (i = 0; i < 25921; i++) {
     dv2[i] = obj->pPattern[i];
   }
 
   c_sqrt(dv2);
-  memcpy(&scanpattern[0], &dv2[0], 36421U * sizeof(double));
+  memcpy(&scanpattern[0], &dv2[0], 25921U * sizeof(double));
   c_AbstractSpectralDOA_privFindP(dv2, rowIndex_data, rowIndex_size,
     colIndex_data, colIndex_size);
   if (rowIndex_size[0] > 0) {
@@ -648,12 +648,12 @@ void MUSICEstimator2D_stepImpl(phased_MUSICEstimator2D *obj, const creal_T X
     doasOut[1] = rtNaN;
     i = colIndex_size[0];
     for (i0 = 0; i0 < i; i0++) {
-      doasOut[0] = (short)((short)((int)colIndex_data[i0] - 1) - 150);
+      doasOut[0] = (signed char)((signed char)((int)colIndex_data[i0] - 1) - 80);
     }
 
     i = rowIndex_size[0];
     for (i0 = 0; i0 < i; i0++) {
-      doasOut[1] = (signed char)((signed char)((int)rowIndex_data[i0] - 1) - 60);
+      doasOut[1] = (signed char)((signed char)((int)rowIndex_data[i0] - 1) - 80);
     }
   } else {
     doasOut[0] = rtNaN;

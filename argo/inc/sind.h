@@ -2,7 +2,7 @@
 // File: sind.h
 //
 // MATLAB Coder version            : 4.1
-// C/C++ source code generated on  : 02-Feb-2019 23:40:29
+// C/C++ source code generated on  : 03-Feb-2019 02:46:35
 //
 #ifndef SIND_H
 #define SIND_H
@@ -15,7 +15,7 @@
 #include "music2D_types.h"
 
 // Function Declarations
-extern void b_sind(double x[301]);
+extern void b_sind(double x[161]);
 
 #endif
 

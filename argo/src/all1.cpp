@@ -2,7 +2,7 @@
 // File: all1.cpp
 //
 // MATLAB Coder version            : 4.1
-// C/C++ source code generated on  : 02-Feb-2019 23:40:29
+// C/C++ source code generated on  : 03-Feb-2019 02:46:35
 //
 
 // Include Files
@@ -13,11 +13,11 @@
 // Function Definitions
 
 //
-// Arguments    : const boolean_T x[284648]
-//                boolean_T y[35581]
+// Arguments    : const boolean_T x[202248]
+//                boolean_T y[25281]
 // Return Type  : void
 //
-void all(const boolean_T x[284648], boolean_T y[35581])
+void all(const boolean_T x[202248], boolean_T y[25281])
 {
   int iy;
   int i1;
@@ -25,14 +25,14 @@ void all(const boolean_T x[284648], boolean_T y[35581])
   int j;
   int ix;
   boolean_T exitg1;
-  for (iy = 0; iy < 35581; iy++) {
+  for (iy = 0; iy < 25281; iy++) {
     y[iy] = true;
   }
 
   iy = -1;
   i1 = 0;
-  i2 = 249067;
-  for (j = 0; j < 35581; j++) {
+  i2 = 176967;
+  for (j = 0; j < 25281; j++) {
     i1++;
     i2++;
     iy++;
@@ -43,7 +43,7 @@ void all(const boolean_T x[284648], boolean_T y[35581])
         y[iy] = false;
         exitg1 = true;
       } else {
-        ix += 35581;
+        ix += 25281;
       }
     }
   }
