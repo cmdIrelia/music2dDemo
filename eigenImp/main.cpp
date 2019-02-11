@@ -55,8 +55,6 @@ void music_argo(MatrixXcf& ant)
 	}
 	cout<<"\033[1;33m========DOA=========\033[0m"<<endl;
 	cout<<"DOA azi/ele= "<<doa_azimuth<<"  "<<doa_elevation<<"\tp_min="<<p_min<<endl;
-	cout<<"Pmusic.block(0,0,10,10)="<<endl;
-	cout<<Pmusic.block(0,0,10,10)<<endl;;
 }
 
 void a_theta(MatrixXcf& a, float azimuth, float elevation)
